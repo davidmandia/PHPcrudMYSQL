@@ -1,0 +1,15 @@
+<!-- <center><ul class="pagination">
+        <?php for($1 = 1; $ <= $pages; $i++): ?>
+
+<li><a href="?page=<?php echo $i ;?>&per-page=<?php echo $perPage; ?>"><?php echo $i; ?></a></li></ul>
+<?php endfor; ?>
+</center> -->
+
+
+ // $page = (isset($_GET['page']) ? $_GET['page'] : 1);
+  // $perPage = (isset($_GET['per-page']) && ($_GET['per-page']) <= 50 ? $_GET['per-page'] : 5 );
+  // $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+   $sql = "select * from tasks limit ".$start" , ".$perPage" ";
+   $total = $db->query("select * from tasks")->num_rows;
+   $pages = ceil($total / $perPage);
